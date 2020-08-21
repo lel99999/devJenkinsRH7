@@ -69,7 +69,7 @@ Vagrant.configure("2") do |config|
 #   trigger.info = "Trigger Execution ..."
 #   trigger.run = { path:"subscription-manager register --username <username> --password <password> --auto-attach"}
 # end
-  config.vm.define "jenkinsRH7" do |chromeRH7|
+  config.vm.define "jenkinsRH7" do |jenkinsRH7|
     jenkinsRH7.vm.box = "clouddood/RH7.5_baserepo"
     jenkinsRH7.vm.hostname = "emacsRH7"
     jenkinsRH7.vm.network "private_network", ip: "192.168.60.167"
