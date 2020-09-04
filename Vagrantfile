@@ -71,7 +71,7 @@ Vagrant.configure("2") do |config|
 # end
   config.vm.define "jenkinsRH7" do |jenkinsRH7|
     jenkinsRH7.vm.box = "clouddood/RH7.5_baserepo"
-    jenkinsRH7.vm.hostname = "emacsRH7"
+    jenkinsRH7.vm.hostname = "jenkinsRH7"
     jenkinsRH7.vm.network "private_network", ip: "192.168.60.167"
 #   jenkinsRH7.vm.network "private_network", ip: "192.168.60.167", nic_type: "virtio"
     jenkinsRH7.vm.provision "shell", :inline => "sudo echo '192.168.60.167 jenkinsRH7.local jenkinsRH7' >> /etc/hosts"
