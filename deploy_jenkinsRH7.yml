@@ -64,6 +64,7 @@
 #     shell:  yum groupinstall "Development Tools" -y
 
   roles:
+    - jenkinsRH7
     - chromeRH7
 #   - emacsRH7
 #   - epel7
