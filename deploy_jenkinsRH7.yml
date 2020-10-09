@@ -36,13 +36,15 @@
     - name: Import Key
       shell: rpm --import http://pkg.jenkins.io/redhat-stable/jenkins.io.key
 
-    - name: Install Jenkins and JAVA
+    - name: Install Jenkins, JAVA and Git
       yum:
         name: {{ item }}
         state: present:
       with_items:
         - java-1.8.0-openjdk
         - jenkins
+        - git
+        
     - name: Start Jenkins
       shell: systemctl start jenkins
 
