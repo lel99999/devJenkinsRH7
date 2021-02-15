@@ -1,5 +1,5 @@
-require 'vagrant-aws'
-require 'yaml'
+#require 'vagrant-aws'
+#require 'yaml'
 
 #Vagrant.configure('2') do |config|
 #  config.vm.define "vagrantAWS-Stata16" do |stata16|
