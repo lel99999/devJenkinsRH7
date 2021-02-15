@@ -60,7 +60,7 @@
 
     - name: Install Jenkins, JAVA, and Git
       yum:
-        name: {{ item }}
+        name: "{{ item }}"
         state: present
       with_items:
         - java-1.8.0-openjdk
