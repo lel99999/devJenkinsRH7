@@ -24,3 +24,12 @@ Install Git, as Jenkins uses git command to pull Github code<br/>
 #### Chrome Policy File Ifformation
 [Linux Quick Start](https://sites.google.com/a/chromium.org/dev/administrators/linux-quick-start)<br/>
 
+#### Docker Demo
+[https://hub.docker.com/r/jenkinsci/pipeline-as-code-github-demo](https://hub.docker.com/r/jenkinsci/pipeline-as-code-github-demo) <br/>
+
+View Log:
+```
+$docker container ls
+$docker logs --details <container_id>
+```
+
