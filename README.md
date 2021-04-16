@@ -11,7 +11,13 @@ Import Key<br/>
 ` $sudo rpm --import http://pkg.jenkins.io/redhat-stable/jenkins.io.key`<br/>
 
 #### Once Installation Completed
-Goto http://<IP Address>:8080, install plugins and create admin user <br/>
+Goto http://\<IP Address\>:8080, install plugins and create admin user <br/>
+![Init Jenkins](https://github.com/lel99999/dev_JenkinsRH7/blob/master/init_jenkins-02.png) <br/>
+![Init Jenkins](https://github.com/lel99999/dev_JenkinsRH7/blob/master/init_jenkins-04.png) <br/>
+![Init Jenkins](https://github.com/lel99999/dev_JenkinsRH7/blob/master/init_jenkins-05.png) <br/>
+![Init Jenkins](https://github.com/lel99999/dev_JenkinsRH7/blob/master/init_jenkins-06.png) <br/>
+
+
   
 Install Git, as Jenkins uses git command to pull Github code<br/>
 
