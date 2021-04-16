@@ -1,0 +1,38 @@
+FROM registry.access.redhat.com/ubi7/ubi
+
+LABEL name="<ImageName>" \
+      vendor="<CompanyName>" \
+      maintainer="<maintainer name>"
+      version="<Version>" \
+      summary="<Summary>" \
+      description="<Description>"
+
+COPY package*.json /bats/
+WORKDIR /bats
+RUN yum -y update \
+ && yum install -y \
+ rh-nodejs10 \
+ git \
+ && scl enable rh-nodejs10 bash
+ENV PATH $PATH:/opt/rh/rh-nodejs10/root/usr/bin/
+RUN npm install
+FROM registry.access.redhat.com/ubi7/ubi
+MAINTAINER <Maintainer Name>
+### Required Atomic/OpenShift Labels - https://github.com/projectatomic/ContainerApplicationGenericLabels#####
+LABEL name="<imagename>" \
+      vendor="<vendor>" \
+      version="<version>" \
+      summary="<summary>" \
+      description="<description>"
+RUN useradd -r -u 1000 -g root bats
+ENV BATS_HELPERS_DIR=/opt/bats-helpers
+COPY --from=dependencies-solver --chown=bats:root /bats/node_modules/bats /opt/bats
+COPY --from=dependencies-solver --chown=bats:root /bats/node_modules/bats-support /opt/bats-helpers/bats-support
+COPY --from=dependencies-solver --chown=bats:root /bats/node_modules/bats-file /opt/bats-helpers/bats-file
+COPY --from=dependencies-solver --chown=bats:root /bats/node_modules/bats-assert /opt/bats-helpers/bats-assert
+RUN ln -s /opt/bats/libexec/bats /sbin/bats
+WORKDIR /tests
+USER 1000
+ENTRYPOINT ["/sbin/bats"]
+CMD ["-v"]
+
